@@ -1,11 +1,7 @@
 const express = require('express');
 const router = express.Router();
-
-router.get("/",function(req,res,next){
-    res.status(200).json({success:true, message:"this is test route "
-});
-});
-router.post("/create",function(req,res,next){
-    res.status(201).json({success:true,user:req.body});
-});
+const user = require("../models/userModel");
+const {home,createuser}= require("../controllers/usercontrollers");
+router.get("/",home);
+router.podt("/create",createuser);
 module.exports = router;
